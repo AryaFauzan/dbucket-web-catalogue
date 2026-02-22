@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+/* Mengimpor Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+
+@theme {
+  /* Memasukkan warna kustom */
+  --color-dark-red: #3e0703;
+  --color-maroon: #660b05;
+  --color-rich-red: #8c1007;
+  --color-cream: #fff0c4;
+
+  /* Memasukkan font kustom */
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+/* CSS Kustom Dasar */
+@layer base {
+  body {
+    @apply bg-cream text-dark-red font-sans;
+  }
+}
+
+/* Animasi dan Scrollbar Kustom */
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--color-cream);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-rich-red);
+    border-radius: 10px;
+  }
+
+  .animate-fade {
+    animation: fade-in 0.8s ease-out both;
+  }
+  .animate-slide {
+    animation: slide-up 0.8s ease-out both;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slide-up {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
