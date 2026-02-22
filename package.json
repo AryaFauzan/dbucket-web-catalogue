@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.0",
+    "@vercel/analytics": "^1.6.1",
     "tailwindcss": "^4.2.0",
     "vue": "beta",
     "vue-router": "^4.6.4"
