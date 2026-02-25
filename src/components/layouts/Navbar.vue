@@ -5,41 +5,52 @@ import { useRoute } from 'vue-router'
 const isMobileMenuOpen = ref(false)
 const route = useRoute()
 
-// Fungsi untuk mengecek apakah rute sedang aktif untuk styling menu
 const isActive = (path) => route.path === path
 </script>
 
 <template>
-  <nav class="fixed w-full bg-dark-red/95 backdrop-blur-md z-50 border-b border-rich-red/20 shadow-xl">
+  <nav class="fixed w-full bg-dark-red/95 backdrop-blur-md z-50 border-b border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
         <router-link to="/" class="flex items-center gap-2 cursor-pointer">
-          <div class="w-10 h-10 bg-cream rounded-full flex items-center justify-center shadow-lg shadow-black/20">
-            <svg xmlns="http://www.w3.org/2000/svg" class="text-rich-red w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-          </div>
-          <span class="text-2xl font-serif font-bold text-cream tracking-tight">BloomBliss</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="text-cream w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5a4.5 4.5 0 1 0-4.5 4.5M12 7.5V9m-4.5 3a4.5 4.5 0 1 0 4.5 4.5M7.5 12H9m7.5 0a4.5 4.5 0 1 1-4.5 4.5m4.5-4.5H15m-3 4.5V15"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="text-2xl font-serif font-bold text-maroon tracking-tight">DBucket</span>
         </router-link>
 
-        <div class="hidden md:flex items-center space-x-10 font-bold text-xs uppercase tracking-widest">
-          <router-link to="/" :class="isActive('/') ? 'text-cream border-b-2 border-rich-red pb-1' : 'text-cream/60 hover:text-cream transition-all'">Beranda</router-link>
-          <router-link to="/catalog" :class="isActive('/catalog') ? 'text-cream border-b-2 border-rich-red pb-1' : 'text-cream/60 hover:text-cream transition-all'">Katalog</router-link>
-          <router-link to="/about" :class="isActive('/about') ? 'text-cream border-b-2 border-rich-red pb-1' : 'text-cream/60 hover:text-cream transition-all'">Tentang</router-link>
-          <router-link to="/contact" class="bg-rich-red text-cream px-8 py-3 rounded-xl hover:bg-maroon transition-all transform hover:-translate-y-1 shadow-lg shadow-black/30 border border-rich-red/50">Hubungi Kami</router-link>
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center space-x-2 text-sm font-semibold">
+          <router-link to="/" :class="isActive('/') ? 'bg-cream text-white px-6 py-2.5 rounded-full' : 'text-maroon/70 hover:text-maroon px-5 py-2.5 rounded-full transition-all'">Beranda</router-link>
+          <router-link to="/catalog" :class="isActive('/catalog') ? 'bg-cream text-white px-6 py-2.5 rounded-full' : 'text-maroon/70 hover:text-maroon px-5 py-2.5 rounded-full transition-all'">Produk</router-link>
+          <router-link to="/about" :class="isActive('/about') ? 'bg-cream text-white px-6 py-2.5 rounded-full' : 'text-maroon/70 hover:text-maroon px-5 py-2.5 rounded-full transition-all'">Tentang</router-link>
+          <router-link to="/contact" :class="isActive('/contact') ? 'bg-cream text-white px-6 py-2.5 rounded-full' : 'text-maroon/70 hover:text-maroon px-5 py-2.5 rounded-full transition-all'">Kontak</router-link>
         </div>
 
-        <button class="md:hidden p-2 text-cream" @click="isMobileMenuOpen = !isMobileMenuOpen">
+        <!-- WhatsApp CTA -->
+        <a href="https://wa.me/12345" class="hidden md:flex items-center gap-2 bg-cream text-white px-7 py-3 rounded-full font-bold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-cream/20">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Pesan via WhatsApp
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="md:hidden p-2 text-maroon" @click="isMobileMenuOpen = !isMobileMenuOpen">
           <svg v-if="!isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
           <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
       </div>
     </div>
 
+    <!-- Mobile Menu -->
     <transition name="page">
-      <div v-if="isMobileMenuOpen" class="md:hidden bg-dark-red border-t border-rich-red/20 p-6 flex flex-col space-y-4 shadow-xl">
-        <router-link to="/" @click="isMobileMenuOpen = false" class="text-left py-2 font-bold text-cream">Beranda</router-link>
-        <router-link to="/catalog" @click="isMobileMenuOpen = false" class="text-left py-2 font-bold text-cream">Katalog</router-link>
-        <router-link to="/about" @click="isMobileMenuOpen = false" class="text-left py-2 font-bold text-cream">Tentang Kami</router-link>
-        <router-link to="/contact" @click="isMobileMenuOpen = false" class="text-left py-2 font-bold text-rich-red bg-cream rounded-lg px-4">Kontak</router-link>
+      <div v-if="isMobileMenuOpen" class="md:hidden bg-dark-red border-t border-white/5 p-6 flex flex-col space-y-3">
+        <router-link to="/" @click="isMobileMenuOpen = false" :class="isActive('/') ? 'bg-cream text-white px-5 py-3 rounded-full text-center font-bold' : 'text-maroon py-3 px-5 text-center font-semibold'">Beranda</router-link>
+        <router-link to="/catalog" @click="isMobileMenuOpen = false" :class="isActive('/catalog') ? 'bg-cream text-white px-5 py-3 rounded-full text-center font-bold' : 'text-maroon py-3 px-5 text-center font-semibold'">Produk</router-link>
+        <router-link to="/about" @click="isMobileMenuOpen = false" :class="isActive('/about') ? 'bg-cream text-white px-5 py-3 rounded-full text-center font-bold' : 'text-maroon py-3 px-5 text-center font-semibold'">Tentang</router-link>
+        <router-link to="/contact" @click="isMobileMenuOpen = false" :class="isActive('/contact') ? 'bg-cream text-white px-5 py-3 rounded-full text-center font-bold' : 'text-maroon py-3 px-5 text-center font-semibold'">Kontak</router-link>
+        <a href="https://wa.me/12345" class="flex items-center justify-center gap-2 bg-cream text-white px-5 py-3 rounded-full font-bold mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Pesan via WhatsApp
+        </a>
       </div>
     </transition>
   </nav>

@@ -1,6 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// Kita akan mengimpor komponen halaman (Views) nanti,
-// untuk sekarang kita buat HomeView sebagai contoh pertama.
 import HomeView from '../views/Home.vue'
 
 const router = createRouter({
@@ -11,9 +9,22 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
-    // Rute /catalog, /about, dan /contact akan kita tambahkan nanti
+    {
+      path: '/catalog',
+      name: 'catalog',
+      component: () => import('../views/Product.vue'),
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: () => import('../views/About.vue'),
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('../views/Contact.vue'),
+    },
   ],
-  // Fungsi ini agar setiap pindah halaman, scroll kembali ke paling atas
   scrollBehavior(to, from, savedPosition) {
     return { top: 0 }
   },

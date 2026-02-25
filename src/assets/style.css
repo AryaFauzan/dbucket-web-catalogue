@@ -5,10 +5,10 @@
 
 @theme {
   /* Memasukkan warna kustom */
-  --color-dark-red: #3e0703;
-  --color-maroon: #660b05;
-  --color-rich-red: #8c1007;
-  --color-cream: #fff0c4;
+  --color-dark-red: #2D1830;
+  --color-maroon: #D7D3C3;
+  --color-rich-red: #BCB59A;
+  --color-cream: #B13E62;
 
   /* Memasukkan font kustom */
   --font-sans: 'Plus Jakarta Sans', sans-serif;
