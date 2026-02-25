@@ -9,21 +9,21 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
-    {
-      path: '/catalog',
-      name: 'catalog',
-      component: () => import('../views/Product.vue'),
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/About.vue'),
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: () => import('../views/Contact.vue'),
-    },
+    // {
+    //   path: '/catalog',
+    //   name: 'catalog',
+    //   component: () => import('../views/Product.vue'),
+    // },
+    // {
+    //   path: '/about',
+    //   name: 'about',
+    //   component: () => import('../views/About.vue'),
+    // },
+    // {
+    //   path: '/contact',
+    //   name: 'contact',
+    //   component: () => import('../views/Contact.vue'),
+    // },
   ],
   scrollBehavior(to, from, savedPosition) {
     return { top: 0 }

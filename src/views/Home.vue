@@ -55,8 +55,8 @@ const categories = [
             <div class="absolute -top-10 -right-10 w-[500px] h-[500px] bg-dark-red/20 rounded-full z-0 hidden lg:block"></div>
             <div class="w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] lg:w-[480px] lg:h-[480px] rounded-full overflow-hidden border-8 border-dark-red/30 shadow-2xl relative z-10">
               <img
-                src=""
-                class="w-full h-full object-cover grayscale contrast-125"
+                src="../../public/img/buket1.jpeg"
+                class="w-full h-full object-cover grayscale contrast-125 "
                 alt="Rangkaian Bunga DBucket"
               >
             </div>
