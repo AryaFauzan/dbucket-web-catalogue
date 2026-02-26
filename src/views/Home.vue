@@ -1,5 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import whatsappNumber from '../data/whatsappNumber.js'
 
 const router = useRouter()
 
@@ -16,8 +17,6 @@ const categories = [
   { name: 'Hari Ibu', emoji: '🌸' },
 ]
 
-const phone = '+6285606475394'
-
 </script>
 
 <template>
@@ -26,8 +25,8 @@ const phone = '+6285606475394'
     <section class="relative bg-cream overflow-hidden min-h-[90vh] flex items-center">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 lg:py-24">
         <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          <!-- Text Content -->
-          <div class="flex-1 space-y-8 text-center lg:text-left z-10">
+          <!-- Text Content (top part) -->
+          <div class="flex-1 space-y-8 text-center lg:text-left z-10 order-1 lg:order-1">
             <div
               class="inline-flex items-center gap-2 text-maroon/70 text-xs font-black tracking-[0.2em] uppercase"
             >
@@ -46,62 +45,50 @@ const phone = '+6285606475394'
               Kami merangkai setiap buket dengan tangan dan penuh kasih sayang. Dari ulang tahun
               hingga pernikahan — DBucket hadir untuk memperindah momen berhargamu.
             </p>
+
+            <!-- Circular Image (MOBILE ONLY — between description & buttons) -->
+            <div class="flex justify-center lg:hidden">
+              <div class="w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] rounded-full overflow-hidden border-8 border-dark-red/30 shadow-2xl">
+                <img
+                  src="../../public/img/buket1.jpeg"
+                  class="w-full h-full object-contain grayscale scale-140 contrast-125 translate-x-[5px] translate-y-[50px]"
+                  alt="Rangkaian Bunga DBucket"
+                >
+              </div>
+            </div>
+
             <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
               <button
                 @click="goToCatalog"
                 class="bg-dark-red text-maroon px-8 py-4 rounded-full font-bold shadow-xl shadow-dark-red/30 hover:opacity-90 transition-all flex items-center gap-2 group text-sm"
               >
                 Lihat Katalog
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
               </button>
               <a
-                :href="`https://wa.me/${phone}`"
+                :href="`https://wa.me/${whatsappNumber}`"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="bg-[#25D366] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:opacity-90 transition-all flex items-center gap-2 text-sm"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                  />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 Pesan via WhatsApp
               </a>
             </div>
           </div>
 
-          <!-- Circular Image -->
-          <div class="flex-1 flex justify-center lg:justify-end relative">
+          <!-- Circular Image (DESKTOP ONLY — right side) -->
+          <div class="flex-1 justify-center lg:justify-end relative hidden lg:flex order-2">
             <!-- Decorative semi-circle behind -->
             <div
-              class="absolute -top-10 -right-10 w-[500px] h-[500px] bg-dark-red/20 rounded-full z-0 hidden lg:block"
+              class="absolute -top-10 -right-10 w-[500px] h-[500px] bg-dark-red/20 rounded-full z-0"
             ></div>
             <div
-              class="w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] lg:w-[480px] lg:h-[480px] rounded-full overflow-hidden border-8 border-dark-red/30 shadow-2xl relative z-10"
+              class="w-[480px] h-[480px] rounded-full overflow-hidden border-8 border-dark-red/30 shadow-2xl relative z-10"
             >
               <img
                 src="../../public/img/buket1.jpeg"
-                class=" grayscale contrast-125 scale-[1.05] translate-x-3 translate-y-4"
+                class="w-full h-full object-contain grayscale scale-140 contrast-125 translate-x-[10px] translate-y-[90px]"
                 alt="Rangkaian Bunga DBucket"
               />
             </div>
@@ -190,7 +177,9 @@ const phone = '+6285606475394'
           Hubungi kami langsung via WhatsApp dan dapatkan konsultasi gratis!
         </p>
         <a
-          :href="`https://wa.me/${phone}`"
+          :href="`https://wa.me/${whatsappNumber}`"
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center gap-3 bg-[#25D366] text-white px-10 py-5 rounded-full font-bold text-lg shadow-xl shadow-[#25D366]/30 hover:shadow-2xl hover:scale-105 transition-all"
         >
           <svg

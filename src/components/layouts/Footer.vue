@@ -1,4 +1,5 @@
 <script setup>
+import whatsappNumber from '../../data/whatsappNumber'
 </script>
 
 <template>
@@ -44,10 +45,7 @@
         <div>
           <h4 class="font-serif font-bold text-lg text-maroon mb-6 italic">Produk</h4>
           <ul class="space-y-4">
-            <li><span class="text-maroon/50 text-sm cursor-pointer hover:text-cream transition-colors">Buket Mawar</span></li>
-            <li><span class="text-maroon/50 text-sm cursor-pointer hover:text-cream transition-colors">Buket Tulip</span></li>
-            <li><span class="text-maroon/50 text-sm cursor-pointer hover:text-cream transition-colors">Buket Sunflower</span></li>
-            <li><span class="text-maroon/50 text-sm cursor-pointer hover:text-cream transition-colors">Buket Custom</span></li>
+            <li><a :href="`https://wa.me/${whatsappNumber}`" target="_blank" rel="noopener noreferrer" class="text-maroon/50 hover:text-cream text-sm transition-colors">Buket Kustom</a></li>
           </ul>
         </div>
 
