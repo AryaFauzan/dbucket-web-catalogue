@@ -50,7 +50,7 @@ const categories = [
             <div class="flex justify-center lg:hidden">
               <div class="w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] rounded-full overflow-hidden border-8 border-dark-red/30 shadow-2xl">
                 <img
-                  src="../../public/img/buket1.jpeg"
+                  src="/img/buket1.jpeg"
                   class="w-full h-full object-contain grayscale scale-140 contrast-125 translate-x-[5px] translate-y-[50px]"
                   alt="Rangkaian Bunga DBucket"
                 >

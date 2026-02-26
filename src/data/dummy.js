@@ -7,7 +7,7 @@ export const products = [
     description: 'Free greeting card', 
     price: 125000, 
     originalPrice: 150000,
-    image: '../../public/img/buket1.jpeg'
+    image: '/img/buket1.jpeg'
   },
   { 
     id: 2, 
